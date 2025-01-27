@@ -6,7 +6,6 @@ declare global {
             env: {
                 DB: D1Database;
                 API_TOKEN: String,
-                IMAGE_HASH: String,
                 ACCOUNT: String
             }
             cf: CfProperties

@@ -1,12 +1,12 @@
 <script lang="ts">
 	import type { ImageDBResult } from "$lib/types";
     import { onDestroy, onMount } from "svelte";
+	import { MAX_IMAGE_WIDTH } from "./constants";
     interface Props {
         imageRecord: ImageDBResult,
         intersectionObserver: IntersectionObserver | null,
         registerElement: (id: string, addImageToScreen: () => VoidFunction, removeRequestToAddImageToScreen: () => void) => void
     }; 
-    const MAX_IMAGE_WIDTH = 472;
     let { imageRecord, registerElement, intersectionObserver }: Props = $props();
     let imageId = `image-${imageRecord.id}`;
     let elem:Element;
@@ -64,7 +64,7 @@
      style:--height={`${height}px`} 
      style:--max-image-width={`${MAX_IMAGE_WIDTH}px`}>
     {#if loadImage} 
-        <img onload={onImageLoad} src={`${imageRecord.url}/w=472`} alt="" hidden={!imageLoaded}/>
+        <img onload={onImageLoad} src={`${imageRecord.url}/w=${MAX_IMAGE_WIDTH}`} alt="" hidden={!imageLoaded}/>
     {/if}
     {#if !imageLoaded || !loadImage}
         <div class="loading">
@@ -87,7 +87,7 @@
     margin:auto;
     border-radius: 0.3rem;
     background-color: var(--clr-surface-tonal-a0);
-    margin: 0.5rem 0 0.5rem 0;
+    margin-top: 0.5rem;
 }
 
 .loading {

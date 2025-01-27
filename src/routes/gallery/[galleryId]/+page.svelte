@@ -1,7 +1,8 @@
 <script lang="ts">
 	import { page } from '$app/state';
-    import type { LoadResult } from '$lib/types';
+    import type { ImageDBResult, LoadResult } from '$lib/types';
 	import type { PageData } from './$types';
+	import { MAX_IMAGE_WIDTH } from './constants';
 	import Gallery from './Gallery.svelte';
     import UploadForm from './UploadForm.svelte';
     import { SvelteToast } from '@zerodevx/svelte-toast';
@@ -21,8 +22,20 @@
         const data: LoadResult = await response.json();
         if (data.lastImageLoadedEpoch > lastRetrieval) {
             lastRetrieval = data.lastImageLoadedEpoch;
-            const columnOneNewEntries = data.galleryImages.filter(columnOneFilter);
-            const columnTwoNewEntries = data.galleryImages.filter(columnTwoFilter);
+            let columnOneNewEntries: ImageDBResult[] = []; 
+            let columnTwoNewEntries: ImageDBResult[] = [];
+
+            if (data.galleryImages.length > 1) {
+                columnOneNewEntries = data.galleryImages.filter(columnOneFilter);
+                columnTwoNewEntries = data.galleryImages.filter(columnTwoFilter);
+            } 
+            else if (columnTwo.length > columnOne.length) {
+                columnOneNewEntries = data.galleryImages;
+            }
+            else {
+                columnTwoNewEntries = data.galleryImages
+            }
+
             columnOne.unshift(...columnOneNewEntries);
             columnTwo.unshift(...columnTwoNewEntries);
         }
@@ -44,9 +57,9 @@
     })
 </script>
 <SvelteToast {options} />
-<div class="main">
+<div class="main" style:--max-image-width={`${MAX_IMAGE_WIDTH}px`}>
     <div class="container">
-        <UploadForm galleryName={data.galleryName} retrieveNewImages={retrieveNewImages} />
+        <UploadForm galleryName={data.galleryName} retrieveNewImages={retrieveNewImages} isValidToLoad={data?.isValidToLoad}/>
     
         {#if data?.galleryImages }
             <Gallery columnOne={columnOne} columnTwo={columnTwo} />
@@ -57,6 +70,7 @@
 <style>
     :global(body) {
         background-color: var(--clr-surface-a20);
+        overflow:hidden;
     }
 
     .main {
@@ -68,6 +82,7 @@
     .container {
         display: flex;
         flex-direction: column;
+        min-width: min(90vw, 922px);
     }
 
     :root {

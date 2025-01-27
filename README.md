@@ -18,6 +18,13 @@ npx sv create my-app
 
 Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
 
+Create a .dev.vars file in your project. It should look like this:-
+
+ACCOUNT="<ACCOUNT ID>"
+API_TOKEN="<API TOKEN>"
+
+See Deploy section on where to get these values
+
 ```bash
 npm run dev
 
@@ -42,3 +49,34 @@ npm run build
 You can preview the production build with `npm run preview`.
 
 > To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+
+## Deploy
+You will need to run the following once:-
+
+```bash
+npx wrangler d1 execute "gallery-db" --remote --file=./db/createdb.sql
+```
+
+Next, you will need to run the following command, replacing items as required (use crypto.randomUUID() in the browser console to generate the UUID):-
+
+```bash
+npx wrangler d1 execute "gallery-db" --remote --command "INSERT INTO gallery VALUES ('e24a71a6-e832-461a-b151-a6eba449bb88', 'Playground Gallery', '2024-01-01', '2024-05-28', 'Australia/Sydney');"
+```
+
+Log into the cloudflare dashboard and go into:-
+Compute (Workers) -> Workers and Pages -> cloudflare-hosted-gallery-app -> Settings
+
+Add the following secrets:-
+
+API_TOKEN 
+ACCOUNT_ID
+
+To see this, you will need to go to the cloudflare dashboard and go to Images -> Overview
+
+NOTE: This may not be available until you pay for a subscription
+
+Finally, after running build (see above) you will need to run:-
+
+```bash
+npx wrangler pages deploy .svelte-kit/cloudflare
+```
