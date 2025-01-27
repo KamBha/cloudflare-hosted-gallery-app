@@ -45,7 +45,7 @@
                     <label  class:disabled={isLoading} for={isLoading ? '' : 'file'}>
                         {#if !isLoading}
                             <div class="notLoading">
-                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill={TEXT_COLOUR}><path d="M440-320v-326L336-542l-56-58 200-200 200 200-56 58-104-104v326h-80ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z"/></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" height="1rem" viewBox="0 -960 960 960" width="1rem" fill={TEXT_COLOUR}><path d="M440-320v-326L336-542l-56-58 200-200 200 200-56 58-104-104v326h-80ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z"/></svg>
                             </div>                   
                         {/if}
                         {#if isLoading}
@@ -66,24 +66,25 @@
     label {
         background-color: var(--clr-primary-a0);
         color: var(--colour);
-        padding: 0.4rem;
+        padding: 0.3rem;
         font-family: sans-serif;
         border-radius: 0.3rem;
         cursor: pointer;
-        margin-top: 0.5rem;
         display:flex;
+        align-items: center;
         width: fit-content;
         margin-left: auto;
         margin-right: 0.3rem;
     }
 
     .text {
-        line-height: 1.6rem;
+        line-height: 1rem;
+        font-size: 0.8rem;
     }
 
     .loading {
-        width: 1.7rem;
-        height: 1.7rem;
+        width: 1rem;
+        height: 1rem;
     }
 
     header {
@@ -101,6 +102,7 @@
         color: var(--clr-primary-a0);
         text-align: center;
         width: 100%;
+        margin-bottom: 1.4rem
     }
 
     header > div {
