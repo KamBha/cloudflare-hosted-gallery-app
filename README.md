@@ -23,6 +23,12 @@ npm run dev
 
 # or start the server and open the app in a new browser tab
 npm run dev -- --open
+
+# Should only need to run once. This will create the DB in cloudflare. It will also print out the database_id which you need to copy the value of and paste into 
+# the wrangler.json file under d1_database[0].database_id
+npx wrangler d1 create gallery-db  
+
+npx wrangler d1 execute "gallery-db" --local --file=./db/createdb.sql && npx wrangler d1 execute "gallery-db" --local --file=./db/testData.sql
 ```
 
 ## Building

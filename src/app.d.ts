@@ -3,7 +3,12 @@
 declare global {
 	namespace App {
         interface Platform {
-            env: Env
+            env: {
+                DB: D1Database;
+                API_TOKEN: String,
+                IMAGE_HASH: String,
+                ACCOUNT: String
+            }
             cf: CfProperties
             ctx: ExecutionContext
         }
