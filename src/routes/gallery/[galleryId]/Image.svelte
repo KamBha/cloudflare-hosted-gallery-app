@@ -95,6 +95,11 @@
   width: 5rem;
 }
 
+.loading svg circle {
+    fill: var(--clr-primary-a10);
+    stroke: var(--clr-primary-a10);
+}
+
 .imageContainer img {
   max-width: 100%;
   max-height: 100%;

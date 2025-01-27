@@ -10,7 +10,7 @@
     };
 
     const FILES_TO_UPLOAD_NAME = 'filesToUpload';
-    const TEXT_COLOUR = '#000'
+    const TEXT_COLOUR = '#eee'
     let isLoading = $state(false);
     const submitOperation: SubmitFunction = ({ cancel, formData }) => {
         const files = formData.getAll(FILES_TO_UPLOAD_NAME);
@@ -66,11 +66,11 @@
     label {
         background-color: var(--clr-primary-a0);
         color: var(--colour);
-        padding: 0.6rem;
+        padding: 0.4rem;
         font-family: sans-serif;
         border-radius: 0.3rem;
         cursor: pointer;
-        margin-top: 1rem;
+        margin-top: 0.5rem;
         display:flex;
         width: fit-content;
         margin-left: auto;
@@ -78,7 +78,7 @@
     }
 
     .text {
-        line-height: 2rem;
+        line-height: 1.6rem;
     }
 
     .loading {
@@ -90,7 +90,7 @@
         margin: 0.5rem 0 0.5rem 0;
         top: 0;
         background-color: var(--clr-surface-tonal-a10);
-        padding: 1rem;
+        padding: 0.5rem;
         border-radius: 0.3rem;
     }
 

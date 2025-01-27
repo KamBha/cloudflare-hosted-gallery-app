@@ -54,7 +54,7 @@
         display: flex;
         flex-direction: row;
         overflow: scroll;
-        height: 80vh;
+        height: 63vh;
         background-color: var(--clr-surface-tonal-a10);
         border-radius: 0.3rem;
     }
