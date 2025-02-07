@@ -54,9 +54,11 @@
         display: flex;
         flex-direction: row;
         overflow: scroll;
-        height: 63vh;
+        height: 80vh;
         background-color: var(--clr-surface-tonal-a10);
         border-radius: 0.3rem;
+        align-content: center;
+        justify-content: center;
     }
 
     .column {
