@@ -86,7 +86,7 @@
     align-items: center;
     margin:auto;
     border-radius: 0.3rem;
-    background-color: var(--clr-surface-tonal-a0);
+    background-color: var(--image-background-colour);
     margin-top: 0.5rem;
 }
 
@@ -96,8 +96,8 @@
 }
 
 .loading svg circle {
-    fill: var(--clr-primary-a10);
-    stroke: var(--clr-primary-a10);
+    fill: var(--image-wait-notice-colour);
+    stroke: var(--image-wait-notice-colour);
 }
 
 .imageContainer img {

@@ -65,9 +65,9 @@
 
 <style>
     label {
-        background-color: var(--clr-light-a0);
-        color: var(--clr-dark-a0);
-        border-style: solid var(--clr-dark-a0) 1px;
+        background-color: var(--label-background-colour);
+        color: var(--label-text-colour);
+        border-style: solid var(--label-text-colour) 1px;
         padding: 1rem 2.5rem 1rem 2.5rem;
         cursor: pointer;
         display:flex;
@@ -94,7 +94,7 @@
     }
 
     .notLoading svg {
-        fill: var(--clr-dark-a0);
+        fill: var(--label-text-colour);
     }
 
     .loading {
@@ -109,15 +109,15 @@
     }
 
     .loading svg stop {
-        stop-color:var(--clr-dark-a0);
+        stop-color:var(--label-text-colour);
     }
 
 
     header {
         top: 0;
-        background-color: var(--clr-surface-tonal-a10);
+        background-color: var(--background-colour);
         border-radius: 0.3rem;
-        margin-bottom: 0.5rem;
+        padding-bottom: 0.5rem;
     }
 
     h1 {
@@ -125,7 +125,7 @@
         font-weight: 450;
         font-size: 2.6rem;
         font-style: italic;
-        color: var(--clr-light-a0);
+        color: var(--heading-colour);
         text-align: center;
         width: 100%;
         margin-bottom: 0.5rem
@@ -133,9 +133,5 @@
 
     header > div {
         display: block;
-    }
-
-    .disabled {
-        background-color: var(--clr-light-a0);
     }
 </style>

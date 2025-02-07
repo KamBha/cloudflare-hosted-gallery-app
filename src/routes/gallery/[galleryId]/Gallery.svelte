@@ -55,7 +55,7 @@
         flex-direction: row;
         overflow: scroll;
         height: 80vh;
-        background-color: var(--clr-surface-tonal-a10);
+        background-color: var(--background-colour);
         border-radius: 0.3rem;
         align-content: center;
         justify-content: center;

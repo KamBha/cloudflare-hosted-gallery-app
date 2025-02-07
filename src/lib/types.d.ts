@@ -39,3 +39,21 @@ export interface Params {
 };
 
 export type SimplifiedPlatform = Pick<App.Platform, "env">;
+
+interface Link {
+    name: string,
+    link: string
+};
+
+export interface LandingPageDBResults {
+    id: string,
+    title: string,
+    links: string
+}
+
+
+export interface LandingPageResults {
+    id: string,
+    title: string,
+    links: Link[]
+}

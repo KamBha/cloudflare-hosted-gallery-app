@@ -57,9 +57,6 @@
     })
 </script>
 <SvelteToast {options} />
-<svelte:head>
-    <title>{data.galleryName}</title>
-</svelte:head>
 <div class="main" style:--max-image-width={`${MAX_IMAGE_WIDTH}px`}>
     <div class="container">
         <UploadForm galleryName={data.galleryName} retrieveNewImages={retrieveNewImages} isValidToLoad={data?.isValidToLoad}/>
@@ -72,10 +69,8 @@
 
 <style>
     :global(body) {
-        background-color: var(--clr-surface-a20);
+        background-color: var(--background-colour);
         overflow:hidden;
-        margin: 0;
-        padding: 0;
     }
 
     .main {
@@ -87,38 +82,31 @@
     .container {
         display: flex;
         flex-direction: column;
-        min-width: 100%;
+        min-width: min(90vw, 922px);
     }
 
     :root {
 
-/** Base colors */
---clr-dark-a0: rgb(117, 126, 115);
---clr-light-a0: #ffffff;
 
-/** Dark theme primary colors */
---clr-primary-a0: #ff9f93;
---clr-primary-a10: rgb(117, 126, 115);
---clr-primary-a20: #ffb5aa;
---clr-primary-a30: #ffbfb6;
---clr-primary-a40: #ffcac2;
---clr-primary-a50: #ffd5ce;
+--background-colour: #415a49;
+--label-text-colour: #295242;
+--heading-colour: #ffbfb6;
+--label-background-colour: #fff;
+--image-wait-notice-colour: #3f6455;
+--image-background-colour: #295242;
+font-size: 20px;
 
-/** Dark theme surface colors */
---clr-surface-a0: #295242;
---clr-surface-a10: #3f6455;
---clr-surface-a20: rgb(117, 126, 115);
---clr-surface-a30: #6c887c;
---clr-surface-a40: #849b91;
---clr-surface-a50: #9baea6;
+    }
 
-/** Dark theme tonal surface colors */
---clr-surface-tonal-a0: #415a49;
---clr-surface-tonal-a10: rgb(117, 126, 115);
---clr-surface-tonal-a20: #687c6e;
---clr-surface-tonal-a30: #7c8e81;
---clr-surface-tonal-a40: #91a095;
---clr-surface-tonal-a50: #a6b2a9;
+    @media (max-width: 600px) {
+        :root {
+            font-size: 16px;
+        }
+    }
 
+    @media (max-width: 450px) {
+        :root {
+            font-size: 12px;
+        }
     }
 </style>

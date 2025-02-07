@@ -15,3 +15,9 @@ CREATE TABLE IF NOT EXISTS image (
     height INTEGER,
     FOREIGN KEY(galleryId) REFERENCES gallery(id)
 );
+
+CREATE TABLE IF NOT EXISTS landingPage (
+    id VARCHAR(50) PRIMARY KEY,
+    title VARCHAR(50000),
+    links TEXT
+);
