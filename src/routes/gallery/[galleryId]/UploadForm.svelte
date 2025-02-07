@@ -117,6 +117,7 @@
         top: 0;
         background-color: var(--clr-surface-tonal-a10);
         border-radius: 0.3rem;
+        margin-bottom: 0.5rem;
     }
 
     h1 {
